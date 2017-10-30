@@ -5,6 +5,7 @@ var bcrypt = require('bcryptjs');
 var Q = require('q');
 var mongo = require('mongoskin');
 var db = mongo.db(config.connectionString, { native_parser: true });
+
 db.bind('meetingInfo');
 
 var dateTime = require('node-datetime');
@@ -50,19 +51,13 @@ function createMeeting(meetingInfoParam) {
 
 function getLatestMeetingInfo(applicationName) {
     var deferred = Q.defer();
-    
-    /*db.meetingInfo.find({applicationName: "App" }).toArray(function (err, meeting) {
-        if (err) deferred.reject(err.name + ': ' + err.message);
-        deferred.resolve(tempMeetings);
-    });*/
 
-    db.meetingInfo.find({applicationName: "app" }).sort({"startDate": -1}).limit(1).toArray(function(err,meeting) {
+    db.meetingInfo.find({ applicationName: "app" }).sort({ "startDate": -1 }).limit(1).toArray(function (err, meeting) {
         if (err) deferred.reject(err.name + ': ' + err.message);
         else {
-            console.log(meeting);
             deferred.resolve(meeting);
         }
     });
-    
+
     return deferred.promise;
 }
