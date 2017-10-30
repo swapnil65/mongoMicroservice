@@ -1,0 +1,8 @@
+{
+    "connectionString": "mongodb://localhost:27017/meetingInfoDb",
+    "apiUrl": "http://localhost:4200",
+    "secret": "meeting-info",
+    "exclude": [
+        "node_modules/*"
+    ]
+}
