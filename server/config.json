@@ -1,5 +1,5 @@
 {
-    "connectionString": "mongodb://localhost:27017/meetingInfoDb",
+    "connectionString": "mongodb://root:bitnami@ec2-34-210-134-46.us-west-2.compute.amazonaws.com:27017/admin",
     "apiUrl": "http://localhost:4200",
     "secret": "meeting-info",
     "exclude": [

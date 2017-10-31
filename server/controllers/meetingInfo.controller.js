@@ -10,7 +10,6 @@ router.get('/getLatest/:applicationName', getLatest);
 module.exports = router;
 
 function create(req, res) {
-    console.log(req.body);
     meetingService.createMeeting(req.body)
         .then(function () {
             res.sendStatus(200);
