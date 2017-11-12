@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 
 // routes
 app.use('/meetingInfo', require('./controllers/meetingInfo.controller'));
+app.use('/user', require('./controllers/authenticate.controller'));
+
+
 
 
 // start server

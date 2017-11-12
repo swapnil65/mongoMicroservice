@@ -2,10 +2,12 @@ var config = require('config.json');
 var express = require('express');
 var router = express.Router();
 var meetingService = require('services/meetingInfo.service');
+var VerifyToken = require('auth/verifyToken');
+
 
 // routes
-router.post('/createMeetingInfo', create);
-router.get('/getLatest/:applicationName', getLatest);
+router.post('/createMeetingInfo', VerifyToken, create);
+router.get('/getLatest/:applicationName', VerifyToken, getLatest);
 
 module.exports = router;
 
